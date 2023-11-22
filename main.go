@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"synapsis-rest/src/database"
 	"synapsis-rest/src/routes"
 
@@ -10,17 +11,23 @@ import (
 )
 
 func main() {
-	database.MysqlConnect()
+	app := Setup()
+	log.Fatal(app.Listen(":3000"))
+}
+
+func Setup() *fiber.App {
 	engine := mustache.New("./src/views", ".mustache")
 
 	app := fiber.New(fiber.Config{
-		Views: engine,
+		Views:       engine,
+		ViewsLayout: "layouts/main",
 	})
 
 	app.Use(logger.New())
 
+	database.MysqlConnect()
+
 	routes.RootRoutes(app)
 	routes.PostRoutes(app)
-
-	app.Listen(":3000")
+	return app
 }
