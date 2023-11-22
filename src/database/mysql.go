@@ -24,13 +24,13 @@ func MysqlConnect() {
 
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
-	db.AutoMigrate(&models.Post{})
+	db.AutoMigrate(&models.Post{}, &models.Customer{}, &models.Product{}, &models.ProductCart{})
 
 	if err != nil {
-		log.Fatal("Gagal terhubung ke database. \n", err)
+		log.Fatal("Connection Refused : \n", err)
 		os.Exit(2)
 	}
 
-	log.Println("Terhubung ke database")
+	log.Println("Connection established")
 	DB = db
 }
