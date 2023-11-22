@@ -2,11 +2,16 @@ module synapsis-rest
 
 go 1.19
 
+require github.com/gofiber/template/mustache/v2 v2.0.7
+
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
+	github.com/cbroglie/mustache v1.4.0 // indirect
 	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/gofiber/fiber/v2 v2.51.0 // indirect
 	github.com/gofiber/storage/mysql/v2 v2.0.0-20231122072034-9c5739619e82 // indirect
+	github.com/gofiber/template v1.8.2 // indirect
+	github.com/gofiber/utils v1.1.0 // indirect
 	github.com/google/uuid v1.4.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect

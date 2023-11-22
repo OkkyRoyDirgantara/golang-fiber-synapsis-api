@@ -6,18 +6,20 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/template/mustache/v2"
 )
 
 func main() {
-	app := fiber.New()
 	database.MysqlConnect()
+	engine := mustache.New("./src/views", ".mustache")
+
+	app := fiber.New(fiber.Config{
+		Views: engine,
+	})
 
 	app.Use(logger.New())
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
-
+	routes.RootRoutes(app)
 	routes.PostRoutes(app)
 
 	app.Listen(":3000")
