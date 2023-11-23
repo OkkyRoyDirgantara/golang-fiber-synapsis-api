@@ -2,6 +2,7 @@ version: "3"
 services:
   db:
     image: mysql:latest
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: synapsis
@@ -13,6 +14,7 @@ services:
 
   app:
     image: okkyroydirgantara/golang-fiber-synapsis-api:latest
+    restart: always
     build:
       context: .
     ports:
