@@ -1,0 +1,21 @@
+version: "3"
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: synapsis
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      TEMPLATE_DIR: "/app/src/views"
+    ports:
+      - "3306:3306"
+
+  app:
+    image: okkyroydirgantara/golang-fiber-synapsis-api:latest
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
