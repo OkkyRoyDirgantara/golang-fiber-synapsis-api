@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"synapsis-rest/src/database/seeders"
 	"synapsis-rest/src/models"
 
 	"github.com/joho/godotenv"

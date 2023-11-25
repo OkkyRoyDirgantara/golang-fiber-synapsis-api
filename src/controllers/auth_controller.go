@@ -16,8 +16,8 @@ import (
 
 func Login(c *fiber.Ctx) error {
 	type LoginInput struct {
-		Identity string `json:"identity" xml:"identity" form:"identity"`
-		Password string `json:"password" xml:"password" form:"password"`
+		Identity string `json:"identity"`
+		Password string `json:"password"`
 	}
 	type CustomerData struct {
 		ID       uint   `json:"id"`
@@ -28,7 +28,7 @@ func Login(c *fiber.Ctx) error {
 	input := new(LoginInput)
 	var customerData CustomerData
 
-	if err := c.BodyParser(&input); err != nil {
+	if err := c.BodyParser(input); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "error", "message": "Error on login request", "data": err})
 	}
 

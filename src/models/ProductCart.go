@@ -4,9 +4,9 @@ import "gorm.io/gorm"
 
 type ProductCart struct {
 	gorm.Model
-
-	Name        string
-	Price       float64
-	Stock       int64
-	Id_customer uint
+	Quantity   int      `gorm:"notNull;default:0"`
+	CustomerId uint     `gorm:"notNull"`
+	Customer   Customer `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	ProductId  uint     `gorm:"notNull"`
+	Product    Product  `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
