@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"synapsis-rest/src/database/seeders"
 	"synapsis-rest/src/models"
 
 	"github.com/joho/godotenv"
@@ -30,12 +31,16 @@ func MysqlConnect() {
 
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
+	// Migration
+
 	db.AutoMigrate(&models.Post{}, &models.Customer{}, &models.Product{}, &models.ProductCart{})
 
 	if err != nil {
 		log.Fatal("Connection Refused : \n", err)
 		os.Exit(2)
 	}
+
+	// seeders.ProductSeeder(db)
 
 	log.Println("Connection established")
 	DB = db
