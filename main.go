@@ -27,7 +27,10 @@ func Setup() *fiber.App {
 
 	database.MysqlConnect()
 
-	routes.RootRoutes(app)
-	routes.PostRoutes(app)
+	routes.ApiRoutes(app)
 	return app
+}
+
+func SetupRoutes(app *fiber.App) {
+
 }
