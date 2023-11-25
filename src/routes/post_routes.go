@@ -9,5 +9,5 @@ import (
 func PostRoutes(a *fiber.App) {
 	route := a.Group("api/v1")
 
-	route.Get("post", controllers.GetAll)
+	route.Get("post", controllers.GetAllPost)
 }
