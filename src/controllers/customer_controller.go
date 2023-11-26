@@ -43,7 +43,6 @@ func CreateCustomer(c *fiber.Ctx) error {
 	hash, err := hashPassword(customer.Password)
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{"status": "error", "message": "Couldn't hash password", "data": err})
-
 	}
 
 	customer.Password = hash

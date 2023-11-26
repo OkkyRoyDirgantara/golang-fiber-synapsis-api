@@ -7,4 +7,6 @@ func ApiRoutes(app *fiber.App) {
 	RootRoutes(app)
 	CustomerRoutes(app)
 	AuthRoutes(app)
+	ProductRoutes(app)
+	ProductCartRoutes(app)
 }
