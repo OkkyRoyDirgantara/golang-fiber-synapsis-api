@@ -50,6 +50,32 @@ docker-compose up -d
 
 attention dont change file .env.example without configur docker configuration
 
+## Installation from docker hub
+
+pull the docker
+
+```
+docker pull okkyroydirgantara/golang-fiber-synapsis-api:latest
+```
+
+Create Network
+
+```
+docker network create db
+```
+
+Run MySQL
+
+```
+docker run -d -p 3306:3306 --network=db --name=mysql -e MYSQL_ROOT_PASSWORD=rahasia -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e MYSQL_HOST=db -e MYSQL_PORT=3306 -e MYSQL_DATABASE=synapsis mysql:latest
+```
+
+Run The Apps
+
+```
+docker run -d -p 3000:3000 --name=synapsis-rest --network=db -e DB_USERNAME=admin -e DB_PASSWORD=admin   -e DB_HOST=mysql -e DB_PORT=3306 -e DB_NAME=synapsis okkyroydirgantara/golang-fiber-synapsis-api:latest
+```
+
 ## Flow the apps
 
 1. Register customers
