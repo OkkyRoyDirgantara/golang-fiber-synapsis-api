@@ -2,7 +2,7 @@
 
 ## Requirement
 
-Pada saat aplikasi ini dibuat dengan menggunakan requirement
+Create with requirement
 
 - Golang go1.19.3 windows/amd64
 - MySQL v8.0.30
@@ -49,3 +49,18 @@ docker-compose up -d
 ```
 
 attention dont change file .env.example without configur docker configuration
+
+## Flow the apps
+
+1. Register customers
+2. Login customers account
+3. Get JWT token
+4. Access endpoint with JWT token if middleware is available
+
+Feature :
+
+1. Register Customer
+2. Login customer
+3. Create Product
+4. Add to cart
+5. Simple Transaction (this is by soft delete product_cart)

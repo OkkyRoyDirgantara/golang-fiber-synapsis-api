@@ -9,4 +9,5 @@ func ApiRoutes(app *fiber.App) {
 	AuthRoutes(app)
 	ProductRoutes(app)
 	ProductCartRoutes(app)
+	TransactionRoutes(app)
 }
