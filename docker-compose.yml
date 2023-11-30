@@ -11,6 +11,11 @@ services:
       TEMPLATE_DIR: "/app/src/views"
     ports:
       - "3306:3306"
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
   app:
     image: okkyroydirgantara/golang-fiber-synapsis-api:latest
@@ -20,4 +25,5 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
