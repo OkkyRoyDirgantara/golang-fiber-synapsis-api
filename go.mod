@@ -7,7 +7,7 @@ require (
 	github.com/gofiber/template/mustache/v2 v2.0.7
 	github.com/golang-jwt/jwt/v5 v5.1.0
 	github.com/joho/godotenv v1.5.1
-	golang.org/x/crypto v0.7.0
+	golang.org/x/crypto v0.17.0
 )
 
 require (
@@ -22,7 +22,6 @@ require (
 	github.com/cbroglie/mustache v1.4.0 // indirect
 	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/gofiber/fiber/v2 v2.51.0
-	github.com/gofiber/storage/mysql/v2 v2.0.0-20231122072034-9c5739619e82 // indirect
 	github.com/gofiber/template v1.8.2 // indirect
 	github.com/gofiber/utils v1.1.0 // indirect
 	github.com/google/uuid v1.4.0 // indirect
@@ -37,7 +36,7 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.50.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
-	golang.org/x/sys v0.14.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
 	gorm.io/driver/mysql v1.5.2
 	gorm.io/gorm v1.25.5
 )
